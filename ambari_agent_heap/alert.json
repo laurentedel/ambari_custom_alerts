@@ -1,0 +1,17 @@
+{
+  "AlertDefinition" :
+      {
+        "service_name": "AMBARI",
+        "scope": "HOST",
+        "enabled": true,
+        "description": "[CUSTOM] This custom host-level alert will check Ambari agent memory usage. Edit '/var/lib/ambari-server/resources/host_scripts/ambari_agent_heap.sh' file to change the thresholds.",
+        "name": "ambari_agent_heap_alert",
+        "component_name": "AMBARI_AGENT",
+        "interval": 1,
+        "label": "[Custom] Ambari Agent Heap Usage",
+        "source": {
+          "path": "ambari_agent_heap.py",
+          "type": "SCRIPT"
+        }
+      }
+}
