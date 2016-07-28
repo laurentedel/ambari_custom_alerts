@@ -6,8 +6,8 @@ import platform
 import sys
 from resource_management.core.logger import Logger
 
-MEMORY_USED_WARNING_THRESHOLD  = 1048576
-MEMORY_USED_CRITICAL_THRESHOLD = 3145728
+MEMORY_USED_WARNING_THRESHOLD  = 1073741824
+MEMORY_USED_CRITICAL_THRESHOLD = 3221225472
 
 def get_tokens():
   """
