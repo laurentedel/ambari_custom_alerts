@@ -1,0 +1,43 @@
+{
+  "AlertDefinition" : {
+    "cluster_name" : "c330",
+    "component_name" : "HIVE_SERVER",
+    "description" : "This host-level alert is triggered if one (or more) of the threads are taking some CPU peak (60% configurable) for the last 10 (default) measures. It has to be coupled with some jstacks of the HIVESERVER2 pid to understand what is causing the blocking",
+    "enabled" : true,
+    "help_url" : null,
+    "ignore_host" : false,
+    "interval" : 5,
+    "label" : "[CUSTOM] HiveServer2 Thread CPU",
+    "name" : "hive_server_thread_cpu",
+    "repeat_tolerance" : 1,
+    "repeat_tolerance_enabled" : false,
+    "scope" : "ANY",
+    "service_name" : "HIVE",
+    "source" : {
+      "path" : "HIVE/0.12.0.2.0/package/alerts/alert_hiveserver2_thread.py",
+      "parameters" : [
+        {
+           "name": "thread_cpu.threshold.warning",
+           "display_name": "Thread CPU Warning Threshold",
+           "value": 60.0,
+           "type": "NUMERIC",
+           "threshold": "WARNING"
+        },
+        {
+           "name": "thread_cpu.threshold.threshold.critical",
+           "display_name": "Thread CPU Critical Threshold",
+           "value": 90.0,
+           "type": "NUMERIC",
+           "threshold": "CRITICAL"
+        },
+        {
+           "name": "thread_cpu.iterations",
+           "display_name": "Iterations of the test (5sec between each), careful about iterations*5sec < interval",
+           "value": 10.0,
+           "type": "NUMERIC"
+        }
+      ],
+      "type" : "SCRIPT"
+    }
+  }
+}
